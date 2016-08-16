@@ -23,6 +23,7 @@ or Maven:
 
 ### Usage
 
+Init SmsVerifyCatcher in method like onCreate activity
 
 Look [Sample projects] [sample] for more information
 
