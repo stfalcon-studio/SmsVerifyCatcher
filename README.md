@@ -1,6 +1,6 @@
 # SmsVerifyCatcher
 
-![alt tag](http://i.imgur.com/XT7Pl0q.gifv)
+![alt tag](http://i.imgur.com/XT7Pl0q.gif)
 
 A library that allows to implement interception of SMS with a verification code using a few lines of code.
 
@@ -44,7 +44,7 @@ limitations under the License.
 
 
 
-[sample]: <https://github.com/stfalcon-studio/ContentManager/tree/master/sample>
+[sample]: <https://github.com/stfalcon-studio/SmsVerifyCatcher/tree/master/sample>
 
 
 
