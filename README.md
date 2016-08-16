@@ -63,6 +63,14 @@ Override activity lifecicle methods:
     }
 ```
 
+You can set phone number filter:
+```java
+    smsVerifyCatcher.setPhoneNumberFilter("777");
+```
+or set message filter via regexp:
+```java
+   smsVerifyCatcher.setFilter("<regexp>");
+```
 That's all! 
 Look [Sample projects] [sample] for more information
 
