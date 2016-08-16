@@ -76,6 +76,9 @@ public class MainActivity extends AppCompatActivity {
         smsVerifyCatcher.onStop();
     }
 
+    /**
+     * need for Android 6 real time permissions
+     */
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
