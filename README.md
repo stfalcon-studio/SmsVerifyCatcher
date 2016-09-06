@@ -2,7 +2,7 @@
 
 ![alt tag](http://i.imgur.com/7Kzzk5z.gif)
 
-A library that allows to implement interception of SMS with a verification code using a few lines of code.
+A library for implementing interception of SMS with a verification code using a few lines of code.
 
 ### Download
 
@@ -23,12 +23,12 @@ or Maven:
 
 ### Usage
 
-Add to AndroidManifest.xml permissions:
+Add permissions to AndroidManifest.xml:
 ```xml
   <uses-permission android:name="android.permission.RECEIVE_SMS" />
   <uses-permission android:name="android.permission.READ_SMS" />
 ```
-Init SmsVerifyCatcher in method like onCreate activity
+Init SmsVerifyCatcher in method like onCreate activity:
 ```java
     smsVerifyCatcher = new SmsVerifyCatcher(this, new OnSmsCatchListener<String>() {
         @Override
@@ -72,7 +72,7 @@ or set message filter via regexp:
    smsVerifyCatcher.setFilter("<regexp>");
 ```
 That's all! 
-Look [Sample projects] [sample] for more information
+Take a Look at [Sample projects] [sample] for more information
 
 ### License 
 
