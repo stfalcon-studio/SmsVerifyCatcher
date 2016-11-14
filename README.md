@@ -8,7 +8,7 @@ A library for implementing interception of SMS with a verification code using a 
 
 Download via Gradle:
 ```gradle
-compile 'com.github.stfalcon:smsverifycatcher:0.1’
+compile 'com.github.stfalcon:smsverifycatcher:0.2’
 ```
 
 or Maven:
@@ -16,7 +16,7 @@ or Maven:
 <dependency>
   <groupId>com.github.stfalcon</groupId>
   <artifactId>smsverifycatcher</artifactId>
-  <version>0.1</version>
+  <version>0.2</version>
   <type>pom</type>
 </dependency>
 ```
