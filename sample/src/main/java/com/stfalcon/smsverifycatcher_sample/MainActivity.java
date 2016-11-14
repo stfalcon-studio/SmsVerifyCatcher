@@ -38,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
 
         //set phone number filter if needed
         smsVerifyCatcher.setPhoneNumberFilter("777");
+        //smsVerifyCatcher.setFilter("regexp");
 
         //button for sending verification code manual
         btnVerify.setOnClickListener(new View.OnClickListener() {

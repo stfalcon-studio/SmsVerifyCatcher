@@ -6,7 +6,7 @@ android {
     buildToolsVersion "23.0.3"
 
     defaultConfig {
-        minSdkVersion 16
+        minSdkVersion 14
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
@@ -22,7 +22,7 @@ android {
 publish {
     groupId = 'com.github.stfalcon'
     artifactId = 'smsverifycatcher'
-    publishVersion = '0.1'
+    publishVersion = '0.2'
     desc = 'A library that allows to implement interception of SMS with a verification code using a few lines of code.'
     licences = ['Apache-2.0']
     uploadName='SmsVerifyCatcher'
