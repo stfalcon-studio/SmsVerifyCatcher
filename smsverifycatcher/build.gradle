@@ -22,7 +22,7 @@ android {
 publish {
     groupId = 'com.github.stfalcon'
     artifactId = 'smsverifycatcher'
-    publishVersion = '0.2'
+    publishVersion = '0.3'
     desc = 'A library that allows to implement interception of SMS with a verification code using a few lines of code.'
     licences = ['Apache-2.0']
     uploadName='SmsVerifyCatcher'
