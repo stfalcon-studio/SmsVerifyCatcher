@@ -4,11 +4,14 @@
 
 A library for implementing interception of SMS with a verification code using a few lines of code.
 
+### Who we are
+Need iOS and Android apps, MVP development or prototyping? Contact us via info@stfalcon.com. We develop software since 2009, and we're known experts in this field. Check out our [portfolio](https://stfalcon.com/en/portfolio) and see more libraries from [stfalcon-studio](https://stfalcon-studio.github.io/).
+
 ### Download
 
 Download via Gradle:
 ```gradle
-compile 'com.github.stfalcon:smsverifycatcher:0.1’
+compile 'com.github.stfalcon:smsverifycatcher:0.2’
 ```
 
 or Maven:
@@ -16,7 +19,7 @@ or Maven:
 <dependency>
   <groupId>com.github.stfalcon</groupId>
   <artifactId>smsverifycatcher</artifactId>
-  <version>0.1</version>
+  <version>0.2</version>
   <type>pom</type>
 </dependency>
 ```
