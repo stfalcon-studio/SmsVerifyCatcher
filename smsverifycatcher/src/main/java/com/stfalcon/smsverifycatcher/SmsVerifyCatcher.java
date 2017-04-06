@@ -71,7 +71,11 @@ public class SmsVerifyCatcher {
     }
 
     public void onStop() {
-        activity.unregisterReceiver(smsReceiver);
+        try {
+            activity.unregisterReceiver(smsReceiver);
+        } catch (IllegalArgumentException ignore) {
+            //receiver not registered
+        }
     }
 
     public void setFilter(String regexp) {
