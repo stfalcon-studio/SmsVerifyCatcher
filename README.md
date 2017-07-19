@@ -1,5 +1,7 @@
 # SmsVerifyCatcher
 
+[![codebeat badge](https://codebeat.co/badges/0d0a3e88-6da8-4e43-a0fc-999af604d0b4)](https://codebeat.co/projects/github-com-stfalcon-studio-smsverifycatcher-master)
+
 ![alt tag](http://i.imgur.com/7Kzzk5z.gif)
 
 A library for implementing interception of SMS with a verification code using a few lines of code.
