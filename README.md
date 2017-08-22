@@ -13,7 +13,7 @@ Need iOS and Android apps, MVP development or prototyping? Contact us via info@s
 
 Download via Gradle:
 ```gradle
-compile 'com.github.stfalcon:smsverifycatcher:0.3.1’
+compile 'com.github.stfalcon:smsverifycatcher:0.3.1'
 ```
 
 or Maven:
