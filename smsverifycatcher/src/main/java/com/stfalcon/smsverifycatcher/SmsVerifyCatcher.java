@@ -21,6 +21,7 @@ import android.app.Activity;
 import android.content.IntentFilter;
 import android.content.pm.PackageManager;
 import android.os.Build;
+import android.support.annotation.VisibleForTesting;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
@@ -29,7 +30,9 @@ import android.support.v4.content.ContextCompat;
  * Created by Anton Bevza on 8/15/16.
  */
 public class SmsVerifyCatcher {
-    private final static int PERMISSION_REQUEST_CODE = 12;
+
+    @VisibleForTesting
+    final static int PERMISSION_REQUEST_CODE = 12;
 
     private Activity activity;
     private Fragment fragment;
@@ -48,6 +51,31 @@ public class SmsVerifyCatcher {
     public SmsVerifyCatcher(Activity activity, Fragment fragment, OnSmsCatchListener<String> onSmsCatchListener) {
         this(activity, onSmsCatchListener);
         this.fragment = fragment;
+    }
+
+    //For fragments
+    public static boolean isStoragePermissionGranted(Activity activity, Fragment fragment) {
+        if (Build.VERSION.SDK_INT >= 23) {
+            if (ContextCompat.checkSelfPermission(activity, Manifest.permission.RECEIVE_SMS)
+                    == PackageManager.PERMISSION_GRANTED &&
+                    ContextCompat.checkSelfPermission(activity, Manifest.permission.READ_SMS)
+                            == PackageManager.PERMISSION_GRANTED) {
+                return true;
+            } else {
+                if (fragment == null) {
+                    ActivityCompat.requestPermissions(activity,
+                            new String[]{Manifest.permission.RECEIVE_SMS,
+                                    Manifest.permission.READ_SMS}, PERMISSION_REQUEST_CODE);
+                } else {
+                    fragment.requestPermissions(
+                            new String[]{Manifest.permission.RECEIVE_SMS,
+                                    Manifest.permission.READ_SMS}, PERMISSION_REQUEST_CODE);
+                }
+                return false;
+            }
+        } else {
+            return true;
+        }
     }
 
     public void onStart() {
@@ -83,37 +111,16 @@ public class SmsVerifyCatcher {
     }
 
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
-        if (requestCode == PERMISSION_REQUEST_CODE) {
-            if (grantResults[0] == PackageManager.PERMISSION_GRANTED &&
-                    grantResults[1] == PackageManager.PERMISSION_GRANTED) {
-                registerReceiver();
-            }
-        }
-    }
-
-
-    //For fragments
-    public static boolean isStoragePermissionGranted(Activity activity, Fragment fragment) {
-        if (Build.VERSION.SDK_INT >= 23) {
-            if (ContextCompat.checkSelfPermission(activity, Manifest.permission.RECEIVE_SMS)
-                    == PackageManager.PERMISSION_GRANTED &&
-                    ContextCompat.checkSelfPermission(activity, Manifest.permission.READ_SMS)
-                            == PackageManager.PERMISSION_GRANTED) {
-                return true;
-            } else {
-                if (fragment == null) {
-                    ActivityCompat.requestPermissions(activity,
-                            new String[]{Manifest.permission.RECEIVE_SMS,
-                                    Manifest.permission.READ_SMS}, PERMISSION_REQUEST_CODE);
-                } else {
-                    fragment.requestPermissions(
-                            new String[]{Manifest.permission.RECEIVE_SMS,
-                                    Manifest.permission.READ_SMS}, PERMISSION_REQUEST_CODE);
+        switch (requestCode) {
+            case PERMISSION_REQUEST_CODE:
+                if (grantResults.length > 1 &&
+                        grantResults[0] == PackageManager.PERMISSION_GRANTED &&
+                        grantResults[1] == PackageManager.PERMISSION_GRANTED) {
+                    registerReceiver();
                 }
-                return false;
-            }
-        } else {
-            return true;
+                break;
+            default:
+                break;
         }
     }
 }
