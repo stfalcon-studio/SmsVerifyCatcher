@@ -82,7 +82,7 @@ class SmsReceiver extends BroadcastReceiver {
      *
      * @param phoneNumberFilter phone number
      */
-    public void setPhoneNumberFilter(String phoneNumberFilter) {
+    public void setPhoneNumberFilter(String +1 228-263-0452 {
         this.phoneNumberFilter = phoneNumberFilter;
     }
 
