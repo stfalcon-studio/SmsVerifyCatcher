@@ -1,13 +1,13 @@
 apply plugin: 'com.android.library'
-apply plugin: 'com.novoda.bintray-release'
+apply plugin: 'maven-publish'
 
 android {
-    compileSdkVersion 25
+    compileSdkVersion 26
     buildToolsVersion '27.0.3'
 
     defaultConfig {
         minSdkVersion 14
-        targetSdkVersion 25
+        targetSdkVersion 26
         versionCode 1
         versionName "0.3.2"
     }
@@ -22,21 +22,37 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-}
 
-publish {
-    groupId = 'com.github.stfalcon'
-    artifactId = 'smsverifycatcher'
-    publishVersion = '0.3.2'
-    desc = 'A library that allows to implement interception of SMS with a verification code using a few lines of code.'
-    licences = ['Apache-2.0']
-    uploadName='SmsVerifyCatcher'
-    website = 'https://github.com/stfalcon-studio/ContentManager.git'
+    afterEvaluate {
+        publishing {
+            publications {
+                // Creates a Maven publication called "release".
+                release(MavenPublication) {
+                    // Applies the component for the release build variant.
+                    from components.release
+
+                    // You can then customize attributes of the publication as shown below.
+                    groupId = 'com.github.stfalcon'
+                    artifactId = 'smsverifycatcher'
+                    version = '0.3.2'
+                }
+                // Creates a Maven publication called “debug”.
+                debug(MavenPublication) {
+                    // Applies the component for the debug build variant.
+                    from components.debug
+
+                    groupId = 'com.github.stfalcon'
+                    artifactId = 'smsverifycatcher-debug'
+                    version = '0.3.2'
+                }
+            }
+        }
+    }
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'com.android.support:appcompat-v7:25.4.0'
+    implementation 'com.android.support:appcompat-v7:26.1.0'
     testImplementation 'junit:junit:4.12'
     testImplementation 'org.mockito:mockito-core:2.19.0'
 }

@@ -1,13 +1,13 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 25
+    compileSdkVersion 26
     buildToolsVersion '27.0.3'
 
     defaultConfig {
         applicationId "com.stfalcon.smsverifycatcher_sample"
         minSdkVersion 14
-        targetSdkVersion 25
+        targetSdkVersion 26
         versionCode 1
         versionName "1.0"
     }
@@ -21,8 +21,8 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'com.android.support:appcompat-v7:25.4.0'
-    implementation project(':smsverifycatcher')
+    implementation 'com.android.support:appcompat-v7:26.1.0'
+    implementation 'com.github.stfalcon:smsverifycatcher:0.3.2'
     testImplementation 'junit:junit:4.12'
 
 }
