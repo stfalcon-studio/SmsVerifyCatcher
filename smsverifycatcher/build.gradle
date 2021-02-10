@@ -2,18 +2,13 @@ apply plugin: 'com.android.library'
 apply plugin: 'maven-publish'
 
 android {
-    compileSdkVersion 26
-    buildToolsVersion '27.0.3'
+    compileSdkVersion 28
 
     defaultConfig {
         minSdkVersion 14
-        targetSdkVersion 26
+        targetSdkVersion 28
         versionCode 1
-        versionName "0.3.2"
-    }
-
-    testOptions {
-        unitTests.returnDefaultValues = true
+        versionName "0.3.3"
     }
 
     buildTypes {
@@ -34,16 +29,7 @@ android {
                     // You can then customize attributes of the publication as shown below.
                     groupId = 'com.github.stfalcon'
                     artifactId = 'smsverifycatcher'
-                    version = '0.3.2'
-                }
-                // Creates a Maven publication called “debug”.
-                debug(MavenPublication) {
-                    // Applies the component for the debug build variant.
-                    from components.debug
-
-                    groupId = 'com.github.stfalcon'
-                    artifactId = 'smsverifycatcher-debug'
-                    version = '0.3.2'
+                    version = '0.3.3'
                 }
             }
         }
@@ -52,7 +38,5 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'com.android.support:appcompat-v7:26.1.0'
-    testImplementation 'junit:junit:4.12'
-    testImplementation 'org.mockito:mockito-core:2.19.0'
+    implementation 'com.android.support:appcompat-v7:28.0.0'
 }
