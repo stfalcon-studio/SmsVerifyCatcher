@@ -24,7 +24,7 @@ allprojects {
 ```
 dependencies {
   ...
-  implementation 'com.github.stfalcon:smsverifycatcher:[last_version]'
+  implementation 'com.github.stfalcon-studio:SmsVerifyCatcher:[last_version]'
 }  
 ```
 
