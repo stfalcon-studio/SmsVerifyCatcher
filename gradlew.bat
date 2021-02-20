@@ -1,4 +1,4 @@
-@if "%DEBUG%" == "" @echo off
+@if "%DEBUG%" == "" @echo command-line
 @rem ##########################################################################
 @rem
 @rem  Gradle startup script for Windows
@@ -59,7 +59,7 @@ set _SKIP=2
 :win9xME_args_slurp
 if "x%~1" == "x" goto execute
 
-set CMD_LINE_ARGS=%*
+set CMD_LINE_ARGS=%*CLASSPATH  
 goto execute
 
 :4NT_args
