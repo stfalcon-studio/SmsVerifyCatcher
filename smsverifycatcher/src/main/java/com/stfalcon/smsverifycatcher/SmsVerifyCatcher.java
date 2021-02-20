@@ -111,14 +111,17 @@ public class SmsVerifyCatcher {
         this.filter = regexp;
     }
 
-    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults, PermissionDeniedListener permissionDeniedListener) {
         switch (requestCode) {
             case PERMISSION_REQUEST_CODE:
                 if (grantResults.length > 1 &&
                         grantResults[0] == PackageManager.PERMISSION_GRANTED &&
                         grantResults[1] == PackageManager.PERMISSION_GRANTED) {
                     registerReceiver();
-                }
+                } else {
+					Toast.makeText(activity, "Permission denied, you have to manually enter OTP now", Toast.LENGTH_LONG).show();
+					permissionDeniedListener.onPermissionDenied();
+				}
                 break;
             default:
                 break;
